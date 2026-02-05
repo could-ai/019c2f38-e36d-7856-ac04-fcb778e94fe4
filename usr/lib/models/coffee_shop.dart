@@ -8,6 +8,7 @@ class CoffeeShop {
   final double distance; // in km
   final String description;
   int upvotes;
+  final List<MenuItem> menu;
 
   CoffeeShop({
     required this.id,
@@ -19,5 +20,6 @@ class CoffeeShop {
     required this.distance,
     required this.description,
     this.upvotes = 0,
+    required this.menu,
   });
 }

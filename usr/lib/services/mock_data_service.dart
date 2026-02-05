@@ -1,11 +1,63 @@
 import 'package:couldai_user_app/models/coffee_shop.dart';
 import 'package:couldai_user_app/models/review.dart';
+import 'package:couldai_user_app/models/menu_item.dart';
 
 class MockDataService {
   // Singleton pattern for simple state management in this demo
   static final MockDataService _instance = MockDataService._internal();
   factory MockDataService() => _instance;
   MockDataService._internal();
+
+  final List<MenuItem> _sampleMenuItems = [
+    MenuItem(
+      id: 'm1',
+      name: 'Espresso',
+      description: 'Rich, bold shot of espresso',
+      price: 2.50,
+      category: 'Coffee',
+      imageUrl: 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    ),
+    MenuItem(
+      id: 'm2',
+      name: 'Latte',
+      description: 'Smooth espresso with steamed milk',
+      price: 4.00,
+      category: 'Coffee',
+      imageUrl: 'https://images.unsplash.com/photo-1561047029-3000c68339ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    ),
+    MenuItem(
+      id: 'm3',
+      name: 'Croissant',
+      description: 'Buttery, flaky pastry',
+      price: 3.00,
+      category: 'Pastries',
+      imageUrl: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    ),
+    MenuItem(
+      id: 'm4',
+      name: 'Blueberry Muffin',
+      description: 'Fresh baked muffin with blueberries',
+      price: 3.50,
+      category: 'Pastries',
+      imageUrl: 'https://images.unsplash.com/photo-1587668178277-295251f900ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    ),
+    MenuItem(
+      id: 'm5',
+      name: 'Cappuccino',
+      description: 'Espresso with frothy milk foam',
+      price: 4.25,
+      category: 'Coffee',
+      imageUrl: 'https://images.unsplash.com/photo-1572442388796-11668a67e53d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    ),
+    MenuItem(
+      id: 'm6',
+      name: 'Sandwich',
+      description: 'Grilled cheese sandwich',
+      price: 6.50,
+      category: 'Food',
+      imageUrl: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    ),
+  ];
 
   final List<CoffeeShop> _shops = [
     CoffeeShop(
@@ -18,6 +70,7 @@ class MockDataService {
       distance: 0.5,
       description: 'Artisan coffee shop with a cozy atmosphere and house-roasted beans.',
       upvotes: 45,
+      menu: [], // Will be set below
     ),
     CoffeeShop(
       id: '2',
@@ -29,6 +82,7 @@ class MockDataService {
       distance: 1.2,
       description: 'Fast service and great pastries. Perfect for a quick morning stop.',
       upvotes: 23,
+      menu: [], // Will be set below
     ),
     CoffeeShop(
       id: '3',
@@ -40,6 +94,7 @@ class MockDataService {
       distance: 2.5,
       description: 'Spacious seating area, great for working remotely. Free high-speed WiFi.',
       upvotes: 112,
+      menu: [], // Will be set below
     ),
     CoffeeShop(
       id: '4',
@@ -51,6 +106,7 @@ class MockDataService {
       distance: 0.8,
       description: 'Classic diner-style coffee with unlimited refills on drip coffee.',
       upvotes: 12,
+      menu: [], // Will be set below
     ),
     CoffeeShop(
       id: '5',
@@ -62,8 +118,18 @@ class MockDataService {
       distance: 3.1,
       description: 'Award-winning baristas and exotic single-origin beans.',
       upvotes: 250,
+      menu: [], // Will be set below
     ),
   ];
+
+  MockDataService._internal() {
+    // Assign sample menus to shops
+    _shops[0].menu.addAll([_sampleMenuItems[0], _sampleMenuItems[1], _sampleMenuItems[2], _sampleMenuItems[3]]);
+    _shops[1].menu.addAll([_sampleMenuItems[1], _sampleMenuItems[2], _sampleMenuItems[3], _sampleMenuItems[4]]);
+    _shops[2].menu.addAll([_sampleMenuItems[0], _sampleMenuItems[1], _sampleMenuItems[2], _sampleMenuItems[3], _sampleMenuItems[4], _sampleMenuItems[5]]);
+    _shops[3].menu.addAll([_sampleMenuItems[0], _sampleMenuItems[1], _sampleMenuItems[4]]);
+    _shops[4].menu.addAll([_sampleMenuItems[0], _sampleMenuItems[1], _sampleMenuItems[2], _sampleMenuItems[3], _sampleMenuItems[4], _sampleMenuItems[5]]);
+  }
 
   final List<Review> _reviews = [
     Review(

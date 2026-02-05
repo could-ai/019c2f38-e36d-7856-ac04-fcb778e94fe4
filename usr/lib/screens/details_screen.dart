@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:couldai_user_app/models/coffee_shop.dart';
 import 'package:couldai_user_app/models/review.dart';
 import 'package:couldai_user_app/services/mock_data_service.dart';
+import 'package:couldai_user_app/screens/menu_screen.dart';
 
 class DetailsScreen extends StatefulWidget {
   final CoffeeShop shop;
@@ -252,6 +253,26 @@ class _DetailsScreenState extends State<DetailsScreen> {
         onPressed: _showAddReviewDialog,
         backgroundColor: Colors.brown[700],
         child: const Icon(Icons.rate_review, color: Colors.white),
+      ),
+      bottomNavigationBar: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: ElevatedButton.icon(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => MenuScreen(shop: widget.shop),
+              ),
+            );
+          },
+          icon: const Icon(Icons.menu_book),
+          label: const Text('View Menu & Order'),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.brown[700],
+            foregroundColor: Colors.white,
+            minimumSize: const Size(double.infinity, 48),
+          ),
+        ),
       ),
     );
   }
