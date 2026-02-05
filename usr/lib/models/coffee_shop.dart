@@ -1,3 +1,5 @@
+import 'package:couldai_user_app/models/menu_item.dart';
+
 class CoffeeShop {
   final String id;
   final String name;

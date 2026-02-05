@@ -112,7 +112,8 @@ class _MenuScreenState extends State<MenuScreen> {
             ],
           );
         }).toList(),
-      ),n      bottomNavigationBar: _cart.isNotEmpty
+      ),
+      bottomNavigationBar: _cart.isNotEmpty
           ? Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
@@ -137,7 +138,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         ),
                         Text(
                           '\$${_getTotalPrice().toStringAsFixed(2)}',
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                             color: Colors.brown[700],
@@ -216,7 +217,7 @@ class MenuItemCard extends StatelessWidget {
                   const SizedBox(height: 4),
                   Text(
                     '\$${item.price.toStringAsFixed(2)}',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.brown[700],
                     ),
